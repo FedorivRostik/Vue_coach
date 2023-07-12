@@ -10,6 +10,7 @@ import RequestReceived from "./pages/requests/RequestReceived.vue";
 import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
+  linkActiveClass: "active",
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/coaches" },
