@@ -1,13 +1,15 @@
 <template>
-    <li class=" border">
-        <h3>{{ fullName }}</h3>
-        <h4>${{ rate }}/hour</h4>
-        <div>
-            <span v-for="area in areas" :key="area">{{ area }}</span>
+    <li class=" border-2 rounded-lg px-2 py-4">
+        <div></div>
+        <h3 class=" font-extrabold text-3xl">{{ fullName }}</h3>
+        <h4 class="font-bold">${{ rate }}/hour</h4>
+        <div class=" flex gap-1">
+            <base-badge :type="area" :title="area" v-for="area in areas" :key="area">{{ area }}</base-badge>
         </div>
-        <div class="actions">
-            <router-link :to="coachContactLink">Contact</router-link>
-            <router-link :to="coachDetailsLink">View Details</router-link>
+        <div class="actions
+        flex justify-end items-center">
+            <base-button :to="coachContactLink" mode="outline" :link="true">Contact</base-button>
+            <base-button :to="coachDetailsLink" mode="flat" :link="true">View Details</base-button>
         </div>
     </li>
 </template>
