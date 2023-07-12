@@ -1,0 +1,9 @@
+import { createStore } from "vuex";
+
+import requestsModule from "./modules/requests";
+import coachesModule from "./modules/coaches";
+const store = createStore({
+  modules: { requests: requestsModule, coaches: coachesModule },
+});
+
+export default store;

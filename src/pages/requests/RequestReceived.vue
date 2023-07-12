@@ -1,5 +1,5 @@
 <template>
-    <base-wrapper class="flex-grow flex-1">
+    <base-wrapper>
 
         Request received
 

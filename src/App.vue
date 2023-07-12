@@ -22,11 +22,11 @@ export default {
 
 <style>
 .fade-enter-active {
-  animation: fade .3s ease-in-out forwards
+  animation: fade .15s ease-in-out forwards
 }
 
 .fade-leave-active {
-  animation: fade .3s ease-in-out forwards reverse
+  animation: fade .15s ease-in-out forwards reverse
 }
 
 @keyframes fade {

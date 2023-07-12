@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <base-wrapper>
 
         contact Coach
-    </div>
+    </base-wrapper>
 </template>
 <script>
 export default {

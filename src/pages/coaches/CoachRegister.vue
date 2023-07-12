@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <base-wrapper>
 
         Coaches Register
-    </div>
+    </base-wrapper>
 </template>
 <script>
 export default {

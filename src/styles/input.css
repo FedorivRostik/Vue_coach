@@ -4,8 +4,6 @@
 
 @layer components {
   /*?TheHeader*/
-  h1.header {
-  }
   li.header-link a {
     @apply border-b-2 border-white border-hidden p-2 hover:border-solid hover:text-white transform duration-300;
   }
