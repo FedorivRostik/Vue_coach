@@ -12,7 +12,11 @@
                     <h2 class=" font-extrabold text-3xl">Interested? Rech out now!</h2>
                     <base-button :link="true" :to="contactLink" mode="outline">Contact</base-button>
                 </header>
-                <router-view></router-view>
+                <router-view v-slot="{ Component }">
+                    <transition name="fade" mode="out-in">
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
             </base-card>
         </section>
         <section>

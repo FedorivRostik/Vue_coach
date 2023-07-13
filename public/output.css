@@ -699,13 +699,17 @@ form .register-form.invalid input[type="text"],
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
-form .register-form p.danger-text {
+form p.danger-text {
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 /*!end*/
+
+.float-right {
+  float: right;
+}
 
 .mx-auto {
   margin-left: auto;

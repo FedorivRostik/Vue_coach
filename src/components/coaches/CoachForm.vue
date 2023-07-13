@@ -36,8 +36,8 @@
             <input type="number" id="rate" v-model.number="rate.val" @blur="setValid('rate')">
             <p v-if="!rate.isValid" class="danger-text">Must be greater than 0</p>
         </div>
-        <p v-if="!formIsValid" class="danger-text">Please fix errors and submit again</p>
-        <base-button>Register</base-button>
+        <p v-if="!formIsValid" class="danger-text">Please input data and submit again</p>
+        <base-button class="float-right">Register</base-button>
     </form>
 </template>
 <script>
