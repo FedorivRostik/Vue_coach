@@ -682,6 +682,29 @@ form .register-form input[type="text"],
   border-width: 1px;
 }
 
+form .register-form.invalid label {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+form .register-form.invalid input[type="text"],
+  form .register-form.invalid input[type="number"],
+  form .register-form.invalid textarea {
+  border-radius: 0.125rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+form .register-form p.danger-text {
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 /*!end*/
 
 .mx-auto {
@@ -903,6 +926,11 @@ form .register-form input[type="text"],
 
 .outline {
   outline-style: solid;
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter {

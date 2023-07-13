@@ -9,7 +9,7 @@
             <div class="controls
             flex justify-between items-center">
                 <base-button mode="outline">Refresh</base-button>
-                <base-button to="/register" mode="outline" :link="true">Register</base-button>
+                <base-button to="/register" mode="outline" :link="true" v-if="!isCoach">Register</base-button>
 
             </div>
 
@@ -61,6 +61,9 @@ export default {
         hasCoaches() {
             return this.$store.getters['coaches/hasCoaches'];
         },
+        isCoach() {
+            return this.$store.getters['coaches/isCoach'];
+        }
     },
     methods: {
         setFilters(updatedFilters) {

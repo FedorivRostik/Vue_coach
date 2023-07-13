@@ -50,5 +50,16 @@
   form .register-form textarea {
     @apply border rounded-sm;
   }
+  form .register-form.invalid label {
+    @apply text-lg  font-semibold text-red-500;
+  }
+  form .register-form.invalid input[type="text"],
+  form .register-form.invalid input[type="number"],
+  form .register-form.invalid textarea {
+    @apply border rounded-sm border-red-500;
+  }
+  form .register-form p.danger-text {
+    @apply text-red-500 font-semibold;
+  }
   /*!end*/
 }
