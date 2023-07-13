@@ -37,4 +37,18 @@
     @apply bg-black text-white;
   }
   /*!end*/
+
+  /*?CoachForm*/
+  form .register-form {
+    @apply flex flex-col gap-1;
+  }
+  form .register-form label {
+    @apply text-lg  font-semibold;
+  }
+  form .register-form input[type="text"],
+  form .register-form input[type="number"],
+  form .register-form textarea {
+    @apply border rounded-sm;
+  }
+  /*!end*/
 }

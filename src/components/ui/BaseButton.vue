@@ -13,7 +13,7 @@ export default {
         mode: {
             type: String,
             required: false,
-            default: null,
+            default: 'outline',
         },
         link: {
             type: Boolean,
