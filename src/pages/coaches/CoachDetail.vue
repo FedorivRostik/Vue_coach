@@ -7,8 +7,8 @@
             </base-card>
         </section>
         <section>
-            <base-card>
-                <header>
+            <base-card class="space-y-6">
+                <header class="space-y-3">
                     <h2 class=" font-extrabold text-3xl">Interested? Rech out now!</h2>
                     <base-button :link="true" :to="contactLink" mode="outline">Contact</base-button>
                 </header>
