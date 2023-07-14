@@ -13,7 +13,7 @@
         <base-card>
             <div class="controls
             flex justify-between items-center">
-                <base-button @click="loadCoaches" mode="outline">Refresh</base-button>
+                <base-button @click="loadCoaches(true)" mode="outline">Refresh</base-button>
                 <base-button to="/register" mode="outline" :link="true"
                     v-if="!isCoach && !this.isLoading">Register</base-button>
 
@@ -54,6 +54,9 @@ export default {
             }
         }
     },
+    created() {
+        this.loadCoaches()
+    },
     computed: {
         filteredCoaches() {
             const coaches = this.$store.getters['coaches/coaches'];
@@ -81,11 +84,11 @@ export default {
         setFilters(updatedFilters) {
             this.activeFilters = updatedFilters;
         },
-        async loadCoaches() {
+        async loadCoaches(refresh = false) {
 
             try {
                 this.isLoading = true;
-                await this.$store.dispatch('coaches/loadCoaches');
+                await this.$store.dispatch('coaches/loadCoaches', { forceRefresh: refresh });
                 this.isLoading = false;
             }
             catch (erorr) {
@@ -95,9 +98,6 @@ export default {
         fixError() {
             this.error = null;
         },
-    },
-    created() {
-        this.loadCoaches()
     },
 }
 </script>

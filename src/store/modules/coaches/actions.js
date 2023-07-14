@@ -2,6 +2,7 @@ import axios from "axios";
 export default {
   async registerCoach(context, payload) {
     const userId = context.rootGetters.userId;
+
     const coachData = {
       firstName: payload.first,
       lastName: payload.last,
@@ -14,23 +15,30 @@ export default {
       `https://vue-http-demo-2439d-default-rtdb.firebaseio.com/coaches/${userId}.json`,
       coachData
     );
+
     if (response.status !== 200) {
       const error = new Error("Failed to refresh");
       throw error;
     }
     context.commit("registerCoach", { ...coachData, id: userId });
   },
-  async loadCoaches(context) {
+
+  async loadCoaches(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
     const response = await axios.get(
       "https://vue-http-demo-2439d-default-rtdb.firebaseio.com/coaches.json"
     );
-    console.log(response);
+
     if (response.status !== 200) {
       const error = new Error("Failed to refresh");
       throw error;
     }
+
     const coaches = [];
     const { data } = response;
+
     for (const key in data) {
       const coach = {
         id: key,
@@ -42,6 +50,8 @@ export default {
       };
       coaches.push(coach);
     }
+
     context.commit("setCoaches", coaches);
+    context.commit("setAxiosTimestamp");
   },
 };

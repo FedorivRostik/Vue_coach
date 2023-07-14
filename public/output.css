@@ -907,6 +907,11 @@ form p.danger-text {
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
+.decoration-clone {
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+
 .fill-green-500 {
   fill: #22c55e;
 }
@@ -948,6 +953,10 @@ form p.danger-text {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .align-middle {
@@ -1006,8 +1015,24 @@ form p.danger-text {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .no-underline {
   text-decoration-line: none;
+}
+
+.decoration-dotted {
+  text-decoration-style: dotted;
+}
+
+.underline-offset-8 {
+  text-underline-offset: 8px;
+}
+
+.underline-offset-2 {
+  text-underline-offset: 2px;
 }
 
 .shadow-2xl {

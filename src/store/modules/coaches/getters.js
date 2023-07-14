@@ -8,4 +8,13 @@ export default {
   isCoach(state, _, _2, rootGetters) {
     return state.coaches.some((coach) => coach.id === rootGetters.userId);
   },
+  shouldUpdate(state) {
+    const lastAxios = state.lastAxios;
+    if (!lastAxios) {
+      return true;
+    }
+    const cuurentTimestamp = new Date().getTime();
+
+    return (cuurentTimestamp - lastAxios) / 1000 > 60;
+  },
 };

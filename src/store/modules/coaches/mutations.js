@@ -5,4 +5,7 @@ export default {
   setCoaches(state, payload) {
     state.coaches = payload;
   },
+  setAxiosTimestamp(state) {
+    state.lastAxios = new Date().getTime();
+  },
 };
