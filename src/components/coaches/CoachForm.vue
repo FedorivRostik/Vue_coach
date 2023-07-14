@@ -22,7 +22,7 @@
             </div>
             <div class="space-x-3" :class="{ invalid: !areas.isValid }">
                 <input type="checkbox" id="career" value="carrer" v-model.trim="areas.val" @blur="setValid('areas')">
-                <label for="career">career</label>
+                <label for="career">Career</label>
             </div>
             <p v-if="!areas.isValid" class="danger-text">Select at least 1</p>
         </div>
