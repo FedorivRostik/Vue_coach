@@ -64,33 +64,41 @@ The project structure is organized as follows:
 
 The application includes the following screens:
 
-- **Home**: The home page of the application, providing an overview of the coaching services.
 - **Coaches**: A listing page displaying a list of coaches available.
 - **CoachDetails**: Details page showing information about a specific coach.
+- **RegisterCoach**: The place for registration as a coach.
 - **Authentication**: The authentication page for user login and registration.
-
-<h4 align="center">Home:</h4>
-<p align="center">
-  <img src="path/to/your/image.png" alt="Image description">
-</p>
+- **Requests**: A list of coach requests
 <hr style="border:2px solid gray">
+
 
 
 <h4 align="center">Coaches:</h4>
 <p align="center">
-  <img src="path/to/your/image.png" alt="Image description">
+  <img src="https://github.com/FedorivRostik/Vue_coach/assets/45173800/521df6dd-50a3-48fc-bf79-47074d1a0cae" alt="Coaches">
 </p>
 <hr style="border:2px solid gray">
 
+<h4 align="center">RegisterCoach:</h4>
+<p align="center">
+  <img src="https://github.com/FedorivRostik/Vue_coach/assets/45173800/64f9cd33-b8e5-420b-a30a-13709148127f" alt="RegisterCoach">
+</p>
+<hr style="border:2px solid gray">
 
 <h4 align="center">CoachDetails:</h4>
 <p align="center">
-  <img src="path/to/your/image.png" alt="Image description">
+  <img src="https://github.com/FedorivRostik/Vue_coach/assets/45173800/678b2757-963c-4b3b-b805-ae1569ec56cd" alt="CoachDetails">
 </p>
 <hr style="border:2px solid gray">
 
-
 <h4 align="center">Authentication:</h4>
 <p align="center">
-  <img src="path/to/your/image.png" alt="Image description">
+  <img src="https://github.com/FedorivRostik/Vue_coach/assets/45173800/9b46b1e6-16cf-4887-9fbf-b85e2bc24f4a" alt="Authentication">
+</p>
+<hr style="border:2px solid gray">
+
+<h4 align="center">Requests:</h4>
+<p align="center">
+  <img src="https://github.com/FedorivRostik/Vue_coach/assets/45173800/0154052a-c38c-471a-873c-020f99342896"
+ alt="Requests">
 </p>
