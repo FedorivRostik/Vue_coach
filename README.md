@@ -19,25 +19,25 @@ To set up the project locally, please follow these steps:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/FedorivRostik/Vue_coach.git
-   ``` 
+```bash
+git clone https://github.com/FedorivRostik/Vue_coach.git
+``` 
 2. Navigate to the project directory:
-     ```bash
-   cd Vue_coach
-   ``` 
-3. 3. Install the dependencies:
-   ```bash
-   npm install
-   ``` 
+```bash
+cd Vue_coach
+``` 
+3.  Install the dependencies:
+```bash
+npm install
+``` 
 4. Run the development server:
-    ```bash
-   npm run serve
-   ```
+```bash
+npm run serve
+```
 5. Run TailwindCSS:
-     ```bash
-   npm run watch
-   ```
+```bash
+npm run watch
+```
 6. Open your browser and visit `http://localhost:8080` to see the running application.
 
 ## Deployed Version
