@@ -1,9 +1,12 @@
 import axios from "axios";
 export default {
   logout(context) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("tokenExpiration");
     context.commit("setUser", {
       token: null,
-      userid: null,
+      userId: null,
       tokenExpiration: null,
     });
   },
@@ -35,7 +38,7 @@ export default {
     const { data } = response;
 
     localStorage.setItem("token", data.idToken);
-    localStorage.setItem("userID", data.localId);
+    localStorage.setItem("userId", data.localId);
     localStorage.setItem("tokenExpiration", data.expiresIn);
     context.commit("setUser", {
       token: data.idToken,
@@ -45,7 +48,7 @@ export default {
   },
   tryLogin(context) {
     const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userID");
+    const userId = localStorage.getItem("userId");
     const tokenExpiration = localStorage.getItem("tokenExpiration");
     if (token && userId && tokenExpiration) {
       context.commit("setUser", {
