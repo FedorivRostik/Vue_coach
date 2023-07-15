@@ -14,7 +14,9 @@
             <div class="controls
             flex justify-between items-center">
                 <base-button @click="loadCoaches(true)" mode="outline">Refresh</base-button>
-                <base-button v-if="!isLoggedIn" to="/auth" mode="outline" :link="true">Login</base-button>
+                <base-button v-if="!isLoggedIn" to="/auth?redirect=register" mode="outline" :link="true">Login for creating
+                    coach
+                    account</base-button>
                 <base-button to="/register" mode="outline" :link="true"
                     v-if="!isCoach && !this.isLoading && isLoggedIn">Register</base-button>
 
@@ -60,7 +62,7 @@ export default {
     },
     computed: {
         isLoggedIn() {
-            return this.$store.getters.isAuthticated
+            return this.$store.getters.isAuthenticated
         },
         filteredCoaches() {
             const coaches = this.$store.getters['coaches/coaches'];

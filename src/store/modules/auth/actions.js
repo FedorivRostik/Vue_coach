@@ -21,7 +21,6 @@ export default {
       throw error;
     }
     const { data } = response;
-    console.log(response);
     context.commit("setUser", {
       token: data.idToken,
       userId: data.localId,
