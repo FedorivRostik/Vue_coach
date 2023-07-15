@@ -14,7 +14,7 @@
                 </div>
                 <div class="register-form">
                     <label for="password">Password</label>
-                    <input type="text" id="password" v-model.trim="password">
+                    <input type="password" id="password" v-model.trim="password">
                 </div>
                 <p class="danger-text" v-if="!formIsValid">Form is invalid email must contain @ and password at least 6
                     symbols</p>

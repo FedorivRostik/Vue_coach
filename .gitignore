@@ -2,7 +2,18 @@
 node_modules
 /dist
 
-
+/firebase.json
+/firestore.rules
+/storage.rules
+/serviceAccountKey.json
+/.firebaserc
+/.firebase/
+/.firebase/**/*
+/node_modules/
+/yarn.lock
+/package-lock.json
+/.vscode/
+/.idea/
 # local env files
 .env.local
 .env.*.local
