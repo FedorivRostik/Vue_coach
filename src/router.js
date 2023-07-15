@@ -35,14 +35,14 @@ const router = createRouter({
       component: RequestReceived,
       meta: { requiresAuth: true },
     },
-    { path: "/auth", component: UserAuth, meta: { requiresUnAuth: true } },
+    { path: "/auth", component: UserAuth, meta: { requiresUnauth: true } },
     { path: "/:notFound(.*)", component: NotFound },
   ],
 });
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.getters.isAutheticated) {
+  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
     next("/auth");
-  } else if (to.meta.requiresUnAuth && store.getters.isAutheticated) {
+  } else if (to.meta.requiresUnauth && store.getters.isAuthenticated) {
     next("/coaches");
   } else next();
 });

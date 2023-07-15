@@ -8,45 +8,51 @@ export default {
     });
   },
   async login(context, payload) {
-    const response = await axios.post(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBREWKoxjj9i3BZN14Z2ehx7DamSt0UaFQ",
-      {
-        email: payload.email,
-        password: payload.password,
-        returnSecureToken: true,
-      }
-    );
+    return context.dispatch("auth", { ...payload, mode: "login" });
+  },
+  async signup(context, payload) {
+    return context.dispatch("auth", { ...payload, mode: "signup" });
+  },
+  async auth(context, payload) {
+    const mode = payload.mode;
+    let url =
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBREWKoxjj9i3BZN14Z2ehx7DamSt0UaFQ";
+
+    if (mode === "signup") {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBREWKoxjj9i3BZN14Z2ehx7DamSt0UaFQ";
+    }
+
+    const response = await axios.post(url, {
+      email: payload.email,
+      password: payload.password,
+      returnSecureToken: true,
+    });
     if (response.status !== 200) {
       const error = new Error(response.statusText || "Failed sign up");
       throw error;
     }
     const { data } = response;
+
+    localStorage.setItem("token", data.idToken);
+    localStorage.setItem("userID", data.localId);
+    localStorage.setItem("tokenExpiration", data.expiresIn);
     context.commit("setUser", {
       token: data.idToken,
       userId: data.localId,
       tokenExpiration: data.expiresIn,
     });
   },
-  async signup(context, payload) {
-    const response = await axios.post(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBREWKoxjj9i3BZN14Z2ehx7DamSt0UaFQ",
-      {
-        email: payload.email,
-        password: payload.password,
-        returnSecureToken: true,
-      }
-    );
-    if (response.status !== 200) {
-      const error = new Error(response.statusText || "Failed sign up");
-      throw error;
+  tryLogin(context) {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userID");
+    const tokenExpiration = localStorage.getItem("tokenExpiration");
+    if (token && userId && tokenExpiration) {
+      context.commit("setUser", {
+        token,
+        userId,
+        tokenExpiration,
+      });
     }
-    console.log(response);
-    const { data } = response;
-    console.log(data);
-    context.commit("setUser", {
-      token: data.idToken,
-      userid: data.localId,
-      tokenExpiration: data.expiresIn,
-    });
   },
 };
