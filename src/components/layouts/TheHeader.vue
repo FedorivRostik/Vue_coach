@@ -5,9 +5,27 @@
             <ul class="flex space-x-8 h-10 items-center justify-center">
                 <li class="header-link"><router-link to="/coaches">All coaches</router-link>
                 </li>
-                <li class="header-link"><router-link to="/requests">Requests</router-link>
+                <li v-if="isLoggedIn" class="header-link"><router-link to="/requests">Requests</router-link>
+                </li>
+                <li v-else class="header-link"><router-link to="/auth">Login</router-link>
+                </li>
+                <li v-if="isLoggedIn" class="header-link"><router-link @click="logout" to="/auth">Logout</router-link>
                 </li>
             </ul>
         </nav>
     </header>
 </template>
+<script>
+export default {
+    methods: {
+        logout() {
+            this.$store.dispatch('logout');
+        }
+    },
+    computed: {
+        isLoggedIn() {
+            return this.$store.getters.isAuthticated;
+        }
+    },
+}
+</script>

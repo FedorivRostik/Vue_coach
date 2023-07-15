@@ -1,5 +1,12 @@
 import axios from "axios";
 export default {
+  logout(context) {
+    context.commit("setUser", {
+      token: null,
+      userid: null,
+      tokenExpiration: null,
+    });
+  },
   async login(context, payload) {
     const response = await axios.post(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBREWKoxjj9i3BZN14Z2ehx7DamSt0UaFQ",
