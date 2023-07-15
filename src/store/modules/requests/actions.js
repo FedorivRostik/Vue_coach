@@ -20,8 +20,10 @@ export default {
   },
   async fetchRequests(context) {
     const coachId = context.rootGetters.userId;
+    const token = context.rootGetters.token;
+
     const response = await axios.get(
-      `https://vue-http-demo-2439d-default-rtdb.firebaseio.com/requests/${coachId}.json`
+      `https://vue-http-demo-2439d-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=${token}`
     );
 
     if (response.status !== 200) {

@@ -10,9 +10,10 @@ export default {
       hourlyRate: payload.rate,
       areas: payload.areas,
     };
-
+    const token = context.rootGetters.token;
+    console.log(token);
     const response = await axios.put(
-      `https://vue-http-demo-2439d-default-rtdb.firebaseio.com/coaches/${userId}.json`,
+      `https://vue-http-demo-2439d-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=${token}`,
       coachData
     );
 
