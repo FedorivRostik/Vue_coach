@@ -1,13 +1,24 @@
 import axios from "axios";
+
+let timer;
+
+const setTimer = (context, expiresIn) => {
+  return setTimeout(function () {
+    context.dispatch("autoLogout");
+  }, expiresIn);
+};
+
 export default {
   logout(context) {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("tokenExpiration");
+
+    clearTimeout(timer);
+
     context.commit("setUser", {
       token: null,
       userId: null,
-      tokenExpiration: null,
     });
   },
   async login(context, payload) {
@@ -36,26 +47,40 @@ export default {
       throw error;
     }
     const { data } = response;
+    const expiresIn = data.expiresIn * 1000;
+    const expirationDate = new Date().getTime() + expiresIn;
+
+    timer = setTimer(context, expiresIn);
 
     localStorage.setItem("token", data.idToken);
     localStorage.setItem("userId", data.localId);
-    localStorage.setItem("tokenExpiration", data.expiresIn);
+    localStorage.setItem("tokenExpiration", expirationDate);
     context.commit("setUser", {
       token: data.idToken,
       userId: data.localId,
-      tokenExpiration: data.expiresIn,
     });
   },
   tryLogin(context) {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
     const tokenExpiration = localStorage.getItem("tokenExpiration");
+    const expiresIn = +tokenExpiration - new Date().getTime();
+
+    if (expiresIn < 0) {
+      return;
+    }
+
+    timer = setTimer(context, expiresIn);
+
     if (token && userId && tokenExpiration) {
       context.commit("setUser", {
         token,
         userId,
-        tokenExpiration,
       });
     }
+  },
+  autoLogout(context) {
+    context.dispatch("logout");
+    context.commit("setAutoLogout");
   },
 };
