@@ -51,11 +51,11 @@ Feel free to visit the deployed version to explore the application.
 The project structure is organized as follows:
 
 - `src/`: Contains the main source code of the application.
-  - `assets/`: Stores static assets such as images and stylesheets.
+  - `styles/`: Stores tailwind css files.
   - `components/`: Contains reusable Vue components used throughout the application.
-  - `router/`: Defines the application routes using Vue Router.
+  - `router.js`: Defines the application routes using Vue Router.
   - `store/`: Contains the Vuex store, which manages the application's state.
-  - `views/`: Contains the main views of the application.
+  - `pages/`: Contains the main pages of the application.
   - `App.vue`: The root component that wraps the entire application.
   - `main.js`: The entry point of the application, where the Vue instance is created.
 - `public/`: Contains the static assets that are served directly by the server.
